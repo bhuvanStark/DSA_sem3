@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Response Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container main-layout">
+        <div class="simulation-area">
+            <h1>Emergency Response System</h1>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label>Grid Size:</label>
+                    <input type="number" id="gridSize" value="5" min="3" max="10">
+                    <button onclick="initGrid()">Reset Grid</button>
+                </div>
+
+                <div class="control-group">
+                    <label>Mode:</label>
+                    <select id="modeSelect">
+                        <option value="S">Set Hospital (S)</option>
+                        <option value="T">Add Traffic (T)</option>
+                        <option value="X">Block Road (X)</option>
+                        <option value=".">Clear Cell (.)</option>
+                        <option value="CALL">Log Emergency Call</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Call Severity (1-10):</label>
+                    <input type="number" id="severity" value="5" min="1" max="10">
+                    <label>Waiting Time (min):</label>
+                    <input type="number" id="waitingTime" value="0" min="0">
+                </div>
+
+                <button class="dispatch-btn" onclick="processNextCall()">🚨 Process Next Priority Call</button>
+            </div>
+
+            <div id="grid-container"></div>
+            <div id="status">Ready to accept calls...</div>
+        </div>
+
+        <div class="queue-panel">
+            <h2>Live Call Queue</h2>
+            <div id="queue-list">
+                <div class="queue-empty">No Active Calls</div>
+            </div>
+            <div id="logs-panel">
+                <h3>System Logs</h3>
+                <div id="output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
